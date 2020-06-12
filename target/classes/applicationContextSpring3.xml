@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!--    scope="prototype"   it will create bean base on request-->
+    <!--    scope="singleton"   (default) it create bean only one time-->
+    <bean id="mBG731GW" class="spring3.service.MBG732GW" scope="prototype"/>
+    <bean id="corei9" class="spring3.service.Corei9" scope="prototype"/>
+    <bean id="nVIDIARTX2070" class="spring3.service.NVIDIARTX2070" scope="prototype"/>
+    <bean id="nVIDIARTX1660Ti" class="spring3.service.NVIDIAGTX1660Ti" scope="prototype"/>
+    <bean id="ddr4" class="spring3.service.DDR4" scope="prototype"/>
+
+
+    <!--    this is we pass value to class by constructor-->
+    <bean id="lenovoL1" class="spring3.service.Lenovo" scope="prototype">
+        <constructor-arg ref="mBG731GW"/>
+        <constructor-arg ref="corei9"/>
+        <constructor-arg ref="nVIDIARTX1660Ti"/>
+        <constructor-arg ref="ddr4"/>
+    </bean>
+
+
+    <!--    this is we pass value to class by property-->
+    <!--    property is the member of class-->
+    <bean id="lenovoP1" class="spring3.service.Lenovo" scope="prototype">
+        <property name="mainBoard" ref="mBG731GW"/>
+        <property name="cpu" ref="corei9"/>
+        <property name="gpu" ref="nVIDIARTX2070"/>
+        <property name="ram" ref="ddr4"/>
+    </bean>
+
+</beans>

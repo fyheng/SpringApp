@@ -1,0 +1,11 @@
+-spring 3
+-spring 3xx
+-springtest
+are use applicationContext.xml base on packed name
+#######################################################################################
+
+
+BUT
+-spring_noXML
+is not use applicationContext.xml
+it use java.class name Config (this class work same as applicationContext.xml) and easy to custom

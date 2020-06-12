@@ -3,31 +3,11 @@
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 
-    <bean id ="CRUDDB" class="CRUD.CrudWithDB">
+    <bean id ="CRUDDB" class="springTest.CRUD.CrudWithDB">
     </bean>
-    <bean id ="CacheDB" class="CRUD.CRUDCacheDB">
-    </bean>
-
-    <bean id="mBG731GW" class="ComputerTEST.service.MBG732GW" scope="prototype"/>
-    <bean id="corei9" class="ComputerTEST.service.Corei9" scope="prototype"/>
-    <bean id="nVIDIARTX2070" class="ComputerTEST.service.NVIDIARTX2070" scope="prototype"/>
-    <bean id="nVIDIARTX1660Ti" class="ComputerTEST.service.NVIDIAGTX1660Ti" scope="prototype"/>
-    <bean id="ddr4" class="ComputerTEST.service.DDR4" scope="prototype"/>
-
-<!--    scope="prototype"   it will create bean base on request-->
-<!--    scope="singleton"   (default) it create bean only one time-->
-    <bean id="lenovoL1" class="ComputerTEST.service.Lenovo" scope="prototype">
-        <constructor-arg index="0" ref="mBG731GW"/>
-        <constructor-arg index="1" ref="corei9"/>
-        <constructor-arg index="2" ref="nVIDIARTX1660Ti"/>
-        <constructor-arg index="3" ref="ddr4"/>
+    <bean id ="CacheDB" class="springTest.CRUD.CRUDCacheDB">
     </bean>
 
-    <bean id="lenovoP1" class="ComputerTEST.service.Lenovo" scope="prototype">
-        <constructor-arg index="0" ref="mBG731GW"/>
-        <constructor-arg index="1" ref="corei9"/>
-        <constructor-arg index="2" ref="nVIDIARTX2070"/>
-        <constructor-arg index="3" ref="ddr4"/>
-    </bean>
+
 
 </beans>
