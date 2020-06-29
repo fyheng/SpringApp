@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!--this is we preset (set default) the value to property of class by property-->
+<!--    <bean id="penTool" class="spring2011.service.PenTool">-->
+<!--        <property name="color" value="blue"/>-->
+<!--    </bean>-->
+
+
+<!--solution 1 by defind data type not recomment-->
+<!--
+    <bean id="markerTool" class="spring2011.service.MarkerTool">
+        <constructor-arg type="java.lang.String" value="Red"/>
+        <constructor-arg type="java.lang.String" value="1.cm"/>
+    </bean>
+-->
+
+
+
+<!--solution 2 by defind index-->
+    <bean id="markerTool" class="spring2011.service.MarkerTool">
+        <constructor-arg index="0" value="Red"/>
+        <constructor-arg index="1" value="1.cm"/>
+    </bean>
+
+
+<!--set preset value to properties by constructor by ref-->
+<!--
+    <bean id="editText" class="spring2011.service.EditText">
+        <constructor-arg ref="penTool"/>
+        <constructor-arg ref="markerTool"/>
+    </bean>
+-->
+
+
+
+    <!--set preset value to properties by property and sue inner bean-->
+    <bean id="editText" class="spring2011.service.EditText">
+
+        <property name="penTool">
+        <bean class="spring2011.service.PenTool">
+            <property name="color" value="blue"/>
+        </bean>
+        </property>
+
+        <property name="markerTool">
+            <bean class="spring2011.service.MarkerTool">
+                <constructor-arg index="0" value="Red"/>
+                <constructor-arg index="1" value="1.cm"/>
+            </bean>
+        </property>
+    </bean>
+
+</beans>

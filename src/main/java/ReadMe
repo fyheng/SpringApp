@@ -1,3 +1,4 @@
+#######################################################################################
 -spring 3
 -spring 3xx
 -springtest
@@ -9,3 +10,10 @@ BUT
 -spring_noXML
 is not use applicationContext.xml
 it use java.class name Config (this class work same as applicationContext.xml) and easy to custom
+
+
+#######################################################################################
+now i have add new package spring2011
+#######################################################################################
+this package follow by old styl experience since 2011
+this tutorial is simple spring with manual config

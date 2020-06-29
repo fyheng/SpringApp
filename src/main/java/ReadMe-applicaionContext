@@ -1,0 +1,66 @@
+###########################################################
+-about inner bean
+###########################################################
+whenever a bean is used for only one particular property,
+it's advise to declare it as an inner bean.
+And the inner bean is supported both in setter injection 'property' and constructor injection 'constructor-arg'. ...
+Similarly inner beans are the beans which are defined in the scope of another bean.
+
+**Point to change**
+    the inner bean not need id
+    just copy the bean that is a member of class that need
+    to pass inside the main bean > and inside the property tag.
+
+    <bean> //outter bean
+        <property name"__">
+            <bean> // inner bean
+                ...
+                ...
+            </bean>
+        </property>
+    </bean>
+    Ex :the example in applicationContext2011.xml
+
+
+
+
+###########################################################
+constructor-ref
+###########################################################
+
+To set preset (set default) value to properties of class by constructor
+
+noted ***
+    constructor is not specific that this default value is set to which property
+    generally it set by order declaration of properties in class
+    so if we want to set to specific property
+this solution
+1 is set type of property (not clear if property is the same data type)
+2 is by defind index of property
+
+EX: the example in applicationContext2011.xml
+
+###########################################################
+property ref
+###########################################################
+noted**
+    if we set preset value to property by tag property
+    in the class we need default constructor
+
+
+###########################################################
+alias and idrif
+###########################################################
+*alias
+    is use to set new name of bean
+    <alias name "exist bean name" alias"new bean name">
+
+*idref (use with ref)
+    is use to defind the bean id and make sure the is a bean id
+
+    * <property name "property name" ref="bean name"/>
+
+    *
+    <property name "property name">
+        <idref="bean name"/>
+    </property>

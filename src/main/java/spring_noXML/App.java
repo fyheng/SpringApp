@@ -11,7 +11,7 @@ public class App {
 
 
         Lenovo lenovoL1 = context.getBean("lenovo", Lenovo.class);
-        Lenovo lenovoP1 = context.getBean("lenovoP3", Lenovo.class);
+        Lenovo lenovoP1 = context.getBean("lenovoP1", Lenovo.class);
 
         System.out.println("LenovoL1");
         System.out.println(lenovoL1.getSpecs());

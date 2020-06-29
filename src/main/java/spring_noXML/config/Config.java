@@ -19,7 +19,7 @@ public class Config {
     @Bean
     @Scope("prototype")
     @Autowired
-    public Lenovo lenovoP3 (MainBoard mainBoard, CPU cpu , @Qualifier("NVIDIARTX2070") GPU gpu, RAM ram){
+    public Lenovo lenovoP1 (MainBoard mainBoard, CPU cpu , @Qualifier("NVIDIARTX2070") GPU gpu, RAM ram){
         return new  Lenovo(mainBoard, cpu, gpu, ram);
     }
 }

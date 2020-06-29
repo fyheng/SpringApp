@@ -3,7 +3,7 @@
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 
-    <!--    scope="prototype"   it will create bean base on request-->
+    <!--    scope="prototype"   it will create bean base on request (many bean)-->
     <!--    scope="singleton"   (default) it create bean only one time-->
     <bean id="mBG731GW" class="spring3.service.MBG732GW" scope="prototype"/>
     <bean id="corei9" class="spring3.service.Corei9" scope="prototype"/>
