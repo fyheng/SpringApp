@@ -4,45 +4,84 @@
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 
     <!--this is we preset (set default) the value to property of class by property-->
+    <!--we can add property as list to property dataType list-->
 <!--    <bean id="penTool" class="spring2011.service.PenTool">-->
 <!--        <property name="color" value="blue"/>-->
+<!--        <property name="size">-->
+<!--            <list>-->
+<!--                <value>=1.cm</value>-->
+<!--                <value>=2.cm</value>-->
+<!--                <value>=3.cm</value>-->
+<!--            </list>-->
+<!--        </property>-->
 <!--    </bean>-->
 
 
-<!--solution 1 by defind data type not recomment-->
-<!--
-    <bean id="markerTool" class="spring2011.service.MarkerTool">
-        <constructor-arg type="java.lang.String" value="Red"/>
-        <constructor-arg type="java.lang.String" value="1.cm"/>
+    <!--solution 1 by defind data type not recomment-->
+    <!--
+        <bean id="markerTool" class="spring2011.service.MarkerTool">
+            <constructor-arg type="java.lang.String" value="Red"/>
+            <constructor-arg type="java.lang.String" value="1.cm"/>
+        </bean>
+    -->
+
+
+    <!--solution 2 by defind index-->
+<!--    <bean id="markerTool" class="spring2011.service.MarkerTool">-->
+<!--        <constructor-arg index="0" value="Red"/>-->
+<!--        <constructor-arg index="1" value="1.cm"/>-->
+<!--    </bean>-->
+
+
+    <bean id="eraserTool" class="spring2011.service.EraserTool">
     </bean>
--->
 
+    <bean id="pages1" class="spring2011.service.Pages">
+        <constructor-arg value="Normal page"/>
+        <constructor-arg value="01"/>
+        <constructor-arg value="White"/>
+    </bean>
 
+    <bean id="pages2" class="spring2011.service.Pages">
+        <constructor-arg value="Text page"/>
+        <constructor-arg value="02"/>
+        <constructor-arg value="black-white"/>
+    </bean>
 
-<!--solution 2 by defind index-->
-    <bean id="markerTool" class="spring2011.service.MarkerTool">
-        <constructor-arg index="0" value="Red"/>
-        <constructor-arg index="1" value="1.cm"/>
+    <bean id="pages3" class="spring2011.service.Pages">
+        <constructor-arg value="Image page"/>
+        <constructor-arg value="03"/>
+        <constructor-arg value="color full"/>
+    </bean>
+
+    <bean id="pages" class="spring2011.service.Pages" autowire="byName">
+
     </bean>
 
 
-<!--set preset value to properties by constructor by ref-->
-<!--
-    <bean id="editText" class="spring2011.service.EditText">
-        <constructor-arg ref="penTool"/>
-        <constructor-arg ref="markerTool"/>
-    </bean>
--->
-
+    <!--set preset value to properties by constructor by ref-->
+    <!--
+        <bean id="editText" class="spring2011.service.EditText">
+            <constructor-arg ref="penTool"/>
+            <constructor-arg ref="markerTool"/>
+        </bean>
+    -->
 
 
     <!--set preset value to properties by property and sue inner bean-->
-    <bean id="editText" class="spring2011.service.EditText">
+    <bean id="editText" class="spring2011.service.EditText" autowire="byName">
 
         <property name="penTool">
-        <bean class="spring2011.service.PenTool">
-            <property name="color" value="blue"/>
-        </bean>
+            <bean class="spring2011.service.PenTool">
+                <property name="color" value="blue"/>
+                <property name="size">
+                    <list>
+                        <value>=1.cm</value>
+                        <value>=2.cm</value>
+                        <value>=3.cm</value>
+                    </list>
+                </property>
+            </bean>
         </property>
 
         <property name="markerTool">
@@ -51,6 +90,12 @@
                 <constructor-arg index="1" value="1.cm"/>
             </bean>
         </property>
+
+        <property name="eraserTool">
+            <bean class="spring2011.service.EraserTool" autowire="byName">
+            </bean>
+        </property>
+
     </bean>
 
 </beans>

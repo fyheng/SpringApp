@@ -34,7 +34,8 @@ noted ***
     constructor is not specific that this default value is set to which property
     generally it set by order declaration of properties in class
     so if we want to set to specific property
-this solution
+
+the solution
 1 is set type of property (not clear if property is the same data type)
 2 is by defind index of property
 
