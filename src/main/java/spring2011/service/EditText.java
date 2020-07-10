@@ -1,7 +1,5 @@
 package spring2011.service;
 
-import java.util.List;
-
 public class EditText {
     private PenTool penTool;
     private MarkerTool markerTool;

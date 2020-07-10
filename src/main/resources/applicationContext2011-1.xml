@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd"
+       default-init-method="beforeInit"
+       default-destroy-method="afterDestroy"
+>
+    <import resource="applicationContext2011.xml"/>
+    <import resource="applicationContextTemplate.xml"/>
+
+    <bean id="crop1" class="spring2011.service1.Crop">
+        <constructor-arg value="Paper"/>
+        <constructor-arg value="1.0cm"/>
+        <constructor-arg value="Big Crop"/>
+    </bean>
+
+
+
+<!--
+        this is we can do inhericante bean
+        look like extend class in java
+        and this is child bean
+   ***
+        the parent bean name markerToolParent
+        if we dont set value to this child bean
+        it will get value from parent bean
+-->
+
+    <bean id="crop2" class="spring2011.service1.Crop" parent="markerToolParent">
+<!--        if i dont init value to those property it will get from parent class-->
+<!--        <constructor-arg index="0" value="Paper"/>-->
+<!--        <constructor-arg index="1" value="1.0cm"/>-->
+        <constructor-arg index="2" value="Small Crop"/>
+    </bean>
+
+
+    <bean id="perspectiveCrop" class="spring2011.service1.PerspectiveCrop">
+        <property name="point" value="4 point"/>
+        <property name="des" value="from 1 to 2"/>
+    </bean>
+
+    <bean id="cropTool" class="spring2011.service1.CropTool">
+        <property name="crop1" ref="crop1"/>
+        <property name="crop2" ref="crop2"/>
+        <property name="perspectiveCrop" ref="perspectiveCrop"/>
+    </bean>
+
+
+
+<!--#############################################################################################################-->
+<!--TEST bean template-->
+<!--#############################################################################################################-->
+    <bean id="pen" class="spring2011.DrawingAndTypeTool.Pen" parent="penToolParentTemplate">
+        <property name="color" value="red"/>
+    </bean>
+
+    <bean id="freePen" class="spring2011.DrawingAndTypeTool.FreeFormPen" parent="penToolParentTemplate">
+        <property name="freeFromPen" value="free pen can drawing "/>
+    </bean>
+
+    <bean id="addAnchorPoint" class="spring2011.DrawingAndTypeTool.AddAnchorPoint" parent="penToolParentTemplate">
+        <property name="addAnchorPoint" value="can add anchor while drawing"/>
+    </bean>
+
+    <!--################################################-->
+    <!--Injection by using autowire constructor-->
+    <!--################################################-->
+    <bean id="drawingAndTypeTool" class="spring2011.DrawingAndTypeTool.DrawingAndTypeTool" autowire="constructor">
+<!--        <constructor-arg ref="pen"/>-->
+<!--        <constructor-arg ref="freePen"/>-->
+<!--        <constructor-arg ref="addAnchorPoint"/>-->
+    </bean>
+
+</beans>

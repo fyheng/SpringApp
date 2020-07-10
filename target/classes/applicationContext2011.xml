@@ -3,21 +3,23 @@
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 
-    <!--this is we preset (set default) the value to property of class by property-->
-    <!--we can add property as list to property dataType list-->
-<!--    <bean id="penTool" class="spring2011.service.PenTool">-->
-<!--        <property name="color" value="blue"/>-->
-<!--        <property name="size">-->
-<!--            <list>-->
-<!--                <value>=1.cm</value>-->
-<!--                <value>=2.cm</value>-->
-<!--                <value>=3.cm</value>-->
-<!--            </list>-->
-<!--        </property>-->
-<!--    </bean>-->
+<!--this is we preset (set default) the value to property of class by property-->
+<!--we can add property as list to property dataType list-->
+    <!--
+    <bean id="penTool" class="spring2011.service.PenTool">
+        <property name="color" value="blue"/>
+        <property name="size">
+            <list>
+                <value>=1.cm</value>
+                <value>=2.cm</value>
+                <value>=3.cm</value>
+            </list>
+        </property>
+    </bean>
+    -->
 
 
-    <!--solution 1 by defind data type not recomment-->
+<!--solution 1 by defind data type not recomment-->
     <!--
         <bean id="markerTool" class="spring2011.service.MarkerTool">
             <constructor-arg type="java.lang.String" value="Red"/>
@@ -26,16 +28,19 @@
     -->
 
 
-    <!--solution 2 by defind index-->
-<!--    <bean id="markerTool" class="spring2011.service.MarkerTool">-->
-<!--        <constructor-arg index="0" value="Red"/>-->
-<!--        <constructor-arg index="1" value="1.cm"/>-->
-<!--    </bean>-->
+<!--solution 2 by defind index-->
+    <bean id="markerToolParent" class="spring2011.service.MarkerTool">
+        <constructor-arg index="0" value="Red"/>
+        <constructor-arg index="1" value="1.cm"/>
+    </bean>
 
 
     <bean id="eraserTool" class="spring2011.service.EraserTool">
     </bean>
 
+
+
+<!--set preset value to properties by constructor - value-->
     <bean id="pages1" class="spring2011.service.Pages">
         <constructor-arg value="Normal page"/>
         <constructor-arg value="01"/>
@@ -54,21 +59,38 @@
         <constructor-arg value="color full"/>
     </bean>
 
-    <bean id="pages" class="spring2011.service.Pages" autowire="byName">
+<!--###########################################################################-->
+<!-- Bean injection-->
+<!--###########################################################################-->
 
-    </bean>
-
-
-    <!--set preset value to properties by constructor by ref-->
-    <!--
+<!-- 1 - set preset value to properties by constructor by ref  (mean call other bean into this bean by constructor ref)-->
+<!--
         <bean id="editText" class="spring2011.service.EditText">
             <constructor-arg ref="penTool"/>
             <constructor-arg ref="markerTool"/>
         </bean>
+-->
+
+
+<!-- 2 - set preset value to properties by property and use Bean inner bean  (mean not call other bean, but we write those bean into this mean Bean)-->
+    <!--
+        **
+        in this mean bean we have 4 bean need to inject
+        1 page
+        2 penTool
+        3 markerTool
+        4 eraserTool
+
+        **
+        But inside Mean bean have just 3 sub bean stand for 3 property.
+
+        ** the tag<autowire>
+        is use to scan the property name of java class , and find bean in xml.file.
+        Above i have three bean name page1, page2, page3. And this tag scan those exist bean to add to Mean bean
+
+        ** byName
+        is mean it scan by property name compare with beanId (so property name and beanId need the same)
     -->
-
-
-    <!--set preset value to properties by property and sue inner bean-->
     <bean id="editText" class="spring2011.service.EditText" autowire="byName">
 
         <property name="penTool">

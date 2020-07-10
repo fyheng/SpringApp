@@ -65,3 +65,22 @@ alias and idrif
     <property name "property name">
         <idref="bean name"/>
     </property>
+
+###########################################################
+autowire (to scan the bean) it use with teg<property> , not work with constructor
+###########################################################
+-byName (scan by bean name)
+-byType (scan by bean type)
+-constructor (scan by constructor in java class)
+
+EX: we have two bean , the same class. And we want to inject those two(property type is list) bean to other bean by using autowire
+
+see example in applicationContext2011.xml
+code
+    applicationContext2011.xml
+    subBean name pages1,pages2,..
+    mainBean name editTex
+    that we inject subBean into mainBean
+
+
+
