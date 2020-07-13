@@ -1,4 +1,4 @@
-package spring2011;
+package spring2011.service;
 
 import org.springframework.beans.factory.xml.XmlBeanFactory;
 import org.springframework.context.ApplicationContext;

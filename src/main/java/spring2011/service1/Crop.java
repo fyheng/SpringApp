@@ -41,8 +41,8 @@ public class Crop {
 
     public String getDetail() {
         return "Crop Detail:\n" +
-                "Crop Color is" + getColor() + "\n" +
-                "Size is " + getSize() +"\n" +
-                "Crop Type is "+getCropType();
+                "Crop Color : " + getColor() + "\n" +
+                "Size : " + getSize() +"\n" +
+                "Crop Type : "+getCropType();
     }
 }

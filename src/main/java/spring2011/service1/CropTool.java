@@ -31,9 +31,6 @@ public class CropTool implements ApplicationContextAware , BeanNameAware , Initi
     }
 
 
-
-
-
     private Crop crop1;
     private Crop crop2;
     private MarkerTool markerTool;

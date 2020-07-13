@@ -67,7 +67,7 @@ alias and idrif
     </property>
 
 ###########################################################
-autowire (to scan the bean) it use with teg<property> , not work with constructor
+autowire (to scan the bean) it use with teg<property>
 ###########################################################
 -byName (scan by bean name)
 -byType (scan by bean type)

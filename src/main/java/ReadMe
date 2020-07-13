@@ -24,16 +24,10 @@ now i have add new package spring2011-1
 #######################################################################################
 this package is show how we inheritance bean
 this tutorial is simple spring with manual config
+this applicationContext is include
+1 inner bean
+2 inheritance bean (parent bean)
+3 Bean template (import bean)
+4 set default-method (init, destroy)
+5 get value using file.properties
 
-
-
-#######################################################################################
-Lifecycle Callbacks |  registerShutdownHook()1
-#######################################################################################
-NOTED!** | all class stand by bean will invoked when applicationContext resgter
-#######################################################################################
-
-In Spring2011-> service1.java
-
-     - CropTool java class is show how to implement lifecycle callbacks BY java class
-     - DrawingAndTypeTool is show how to config BY xml

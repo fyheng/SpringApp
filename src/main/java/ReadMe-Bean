@@ -51,13 +51,9 @@ V - Lifecycle Callbacks |  registerShutdownHook()
     If we don't want to use this method then we have to call ConfigurableApplicationContext#close() ourselves at JVM shutdown,
     otherwise our destroy methods won't get called.
 
-
-    Interface work registerShutdownHook()
-
+    Interface work with registerShutdownHook()
         - Initialization
         - destruction
-
-
 **
     two way to override those method
     - CropTool java class is show how to implement lifecycle callbacks BY java class
@@ -65,16 +61,8 @@ V - Lifecycle Callbacks |  registerShutdownHook()
             * afterPropertiesSet()
             * destroy()
 
-    - DrawingAndTypeTool is show how to config
-    2 - by set tag<> in xml.file
-            * config base on bean lifecycle callbacks BY xml.file in beanId="drawingAndTypeTool"
-                    ###<bean id="..." class="..." init-method="beforeInit" destroy-method="afterDestroy">
+    2 take a look in ReadMe-applicationContext2011-1.xml
 
-            * config base for global Bean, it affect hold (all bean content) applicationContext.
-                    ###<bean default-init-method="beforeInit"  default-destroy-method="afterDestroy">
-
-    * init-method="methodName"
-    * destroy-method="methodName"
-
-############################################################################################################
-############################################################################################################
+In Spring2011-> service1.java
+     - CropTool java class is show how to implement lifecycle callbacks BY java class
+     - DrawingAndTypeTool is show how to config BY xml
