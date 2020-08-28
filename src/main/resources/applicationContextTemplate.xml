@@ -5,9 +5,15 @@
 
     <bean id="penToolParentTemplate" abstract="true" scope="prototype">
         <property name ="size" value="1.2"/>
+        <property name ="type" value="Round"/>
+        <property name ="point" value="4-ps"/>
+    </bean>
+
+
+    <bean id="toolParentTemplate" abstract="true" scope="prototype">
+        <property name ="size" value="1.2"/>
         <property name ="type" value="Flat"/>
         <property name ="point" value="4-ps"/>
-
     </bean>
 
 </beans>

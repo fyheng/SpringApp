@@ -1,4 +1,4 @@
-package spring2011.service1;
+package spring2011.cropTool;
 
 import org.springframework.context.support.AbstractApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;

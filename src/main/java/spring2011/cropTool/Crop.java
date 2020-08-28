@@ -1,4 +1,4 @@
-package spring2011.service1;
+package spring2011.cropTool;
 
 public class Crop {
     private String color;

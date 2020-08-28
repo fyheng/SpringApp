@@ -29,31 +29,31 @@
 
 
 <!--solution 2 by defind index-->
-    <bean id="markerToolParent" class="spring2011.service.MarkerTool">
+    <bean id="markerToolParent" class="spring2011.textEditror.MarkerTool">
         <constructor-arg index="0" value="Red"/>
         <constructor-arg index="1" value="1.cm"/>
     </bean>
 
 
-    <bean id="eraserTool" class="spring2011.service.EraserTool">
+    <bean id="eraserTool" class="spring2011.textEditror.EraserTool">
     </bean>
 
 
 
 <!--set preset value to properties by constructor - value-->
-    <bean id="pages1" class="spring2011.service.Pages">
+    <bean id="pages1" class="spring2011.textEditror.Pages">
         <constructor-arg value="Normal page"/>
         <constructor-arg value="01"/>
         <constructor-arg value="White"/>
     </bean>
 
-    <bean id="pages2" class="spring2011.service.Pages">
+    <bean id="pages2" class="spring2011.textEditror.Pages">
         <constructor-arg value="Text page"/>
         <constructor-arg value="02"/>
         <constructor-arg value="black-white"/>
     </bean>
 
-    <bean id="pages3" class="spring2011.service.Pages">
+    <bean id="pages3" class="spring2011.textEditror.Pages">
         <constructor-arg value="Image page"/>
         <constructor-arg value="03"/>
         <constructor-arg value="color full"/>
@@ -91,10 +91,10 @@
         ** byName
         is mean it scan by property name compare with beanId (so property name and beanId need the same)
     -->
-    <bean id="editText" class="spring2011.service.EditText" autowire="byName">
+    <bean id="editText" class="spring2011.textEditror.EditText" autowire="byName">
 
         <property name="penTool">
-            <bean class="spring2011.service.PenTool">
+            <bean class="spring2011.textEditror.PenTool">
                 <property name="color" value="blue"/>
                 <property name="size">
                     <list>
@@ -107,14 +107,14 @@
         </property>
 
         <property name="markerTool">
-            <bean class="spring2011.service.MarkerTool">
+            <bean class="spring2011.textEditror.MarkerTool">
                 <constructor-arg index="0" value="Red"/>
                 <constructor-arg index="1" value="1.cm"/>
             </bean>
         </property>
 
         <property name="eraserTool">
-            <bean class="spring2011.service.EraserTool" autowire="byName">
+            <bean class="spring2011.textEditror.EraserTool" autowire="byName">
             </bean>
         </property>
 

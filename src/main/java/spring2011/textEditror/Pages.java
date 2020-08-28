@@ -1,4 +1,4 @@
-package spring2011.service;
+package spring2011.textEditror;
 
 public class Pages {
     private String pageType;

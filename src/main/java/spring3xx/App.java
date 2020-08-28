@@ -13,13 +13,13 @@ public class App {
         ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext("applicationContextSpring3xx.xml");
 
         Lenovo lenovoL1 = context.getBean("lenovo",Lenovo.class);
-        Lenovo lenovoP1 = context.getBean("lonovoP1",Lenovo.class);
+        //Lenovo lenovoP1 = context.getBean("lonovoP1",Lenovo.class);
 
         System.out.println("LenovoL1");
         System.out.println(lenovoL1.getSpecs());
 
-        System.out.println("LenovoP1");
-        System.out.println(lenovoP1.getSpecs());
+//        System.out.println("LenovoP1");
+//        System.out.println(lenovoP1.getSpecs());
 
     }
 }

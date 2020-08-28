@@ -1,0 +1,110 @@
+###########################################################
+@Required with setter method
+###########################################################
+** we use this bean to tell and write log detail witch property of bean that we missed.
+   inside java class we need to @Required with setter method of property
+
+   - it will show up(logs) clearly about property that missed.
+   - it not affect to hold applicationContext it affect only property
+
+applicationContextAnnotation.xml
+    <bean class="org.springframework.beans.factory.annotation.RequiredAnnotationBeanPostProcessor">
+    </bean>
+
+spring_Annotations->service->Pen.java
+    @Required
+    public void setColor(String color) {
+        this.color = color;
+    }
+
+###########################################################
+@qualifier with setter method
+###########################################################
+**  Spring @Qualifier Annotation. when we create more than one bean of the same type and want to wire only one of them with a property.
+    In such cases, you can use the @Qualifier annotation along with @Autowired to remove the confusion by specifying which exact bean will be wired.
+
+** Beacuse when we inject that bean into other bean it will don't know which one to chose. bcos autowired is scan by type
+
+applicationContextAnnotation.xml
+    <bean id="freePenTool" class="spring_Annotations.service.FreeFormPen" parent="toolParentTemplate">
+        <qualifier value="freePen"/>
+        <property name="freeFromPen" value="free pen can drawing "/>
+    </bean>
+
+    <bean id="freePenTool1" class="spring_Annotations.service.FreeFormPen" parent="toolParentTemplate">
+        <qualifier value="freePen1"/>
+        <property name="freeFromPen" value="free pen can drawing "/>
+    </bean>
+
+
+###########################################################
+@Autowired Annotation with method and constructor
+for more (https://dzone.com/articles/autowiring-in-spring)
+###########################################################
+In Spring, you can use @Autowired annotation to auto-wire bean on the setter method, constructor, or a field. Moreover,
+it can autowire the property in a particular bean.
+
+
+**no: It’s the default autowiring mode. It means no autowiring.
+
+**byName: The byName mode injects the object dependency according to name of the bean.
+         In such a case, the property and bean name should be the same. It internally calls the setter method.
+
+**byType: The byType mode injects the object dependency according to type. So it can have a different property and bean name.
+        It internally calls the setter method.
+
+**constructor: The constructor mode injects the dependency by calling the constructor of the class. It calls the constructor having a large number of parameters.
+
+**autodetect: In this mode, Spring first tries to autowire by the constructor. If this fails, it tries to autowire by using byType.
+
+
+***NOTED case using byType
+    IF more that 1 bean has found it will check byName, so if those founded bean'name is not match with setter method will return exception.
+
+
+
+
+
+ ###########################################################
+ @Autowired Annotation with method and constructor
+ ###########################################################
+ MORE: https://www.baeldung.com/spring-annotations-resource-inject-autowire
+
+@Resource is the annotaion that will help to extract beans from the container.
+1.Field Injection
+2.Setter Injection
+
+*** 1 and 2 is work the same
+
+There are several lookup options to extract beans:
+
+    Match by Name : @Resource(name="namedFile")
+                    private File dependency1;
+                    namedFile is the bean id
+
+    Match by Type : @Resource
+                    private File dependency1;
+                    it has no parameter.
+                    Spring will proceed with the next level of precedence, match-by-type.
+                    * IF more that 1 bean has found, This exception is thrown.
+
+    Match by Qualifier : @Resource
+                         @Qualifier("defaultFile")
+                         private File dependency1;
+                         the "@Qualifier" use it solve any confusion by allowing specific dependencies to be injected into a class.
+
+
+3.The @Inject Annotation, it belongs to the JSR-330 annotations collection.
+
+    Match by Type : @Inject
+                    private ArbitraryDependency fieldInjectDependency;
+                    Unlike the @Resource annotation, which resolves dependencies by name first;
+                    the default behavior of the @Inject annotation resolves dependencies by type.
+
+    Match by Qualifier : @Inject
+                         @Qualifier("defaultFile")
+    	                 private ArbitraryDependency defaultDependency;
+
+    Match by Name : @Inject
+                    @Named("yetAnotherFieldInjectDependency")
+                    private ArbitraryDependency yetAnotherFieldInjectDependency;

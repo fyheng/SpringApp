@@ -1,15 +1,7 @@
-package spring2011.service;
+package spring2011.textEditror;
 
-import org.springframework.beans.factory.xml.XmlBeanFactory;
 import org.springframework.context.ApplicationContext;
-import org.springframework.context.ApplicationContextAware;
-import org.springframework.context.support.AbstractApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
-import org.springframework.core.io.ClassPathResource;
-import spring2011.service.EditText;
-import spring2011.service.MarkerTool;
-import spring2011.service.PenTool;
-import spring2011.service1.CropTool;
 
 public class Service {
     public static void main(String[] args) {

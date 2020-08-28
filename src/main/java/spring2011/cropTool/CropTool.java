@@ -1,4 +1,4 @@
-package spring2011.service1;
+package spring2011.cropTool;
 
 import org.springframework.beans.BeansException;
 import org.springframework.beans.factory.BeanNameAware;
@@ -6,7 +6,7 @@ import org.springframework.beans.factory.DisposableBean;
 import org.springframework.beans.factory.InitializingBean;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.ApplicationContextAware;
-import spring2011.service.MarkerTool;
+import spring2011.textEditror.MarkerTool;
 
 public class CropTool implements ApplicationContextAware , BeanNameAware , InitializingBean , DisposableBean {
     private ApplicationContext context = null;

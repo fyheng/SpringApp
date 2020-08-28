@@ -19,7 +19,7 @@
 
 
 <!--    this bean is set value to properties by file.properties-->
-    <bean id="crop1" class="spring2011.service1.Crop">
+    <bean id="crop1" class="spring2011.cropTool.Crop">
         <constructor-arg value="${crop.color}"/>
         <constructor-arg value="${crop.size}"/>
         <constructor-arg value="${crop.cropType}"/>
@@ -37,7 +37,7 @@
         it will get value from parent bean
 -->
 
-    <bean id="crop2" class="spring2011.service1.Crop" parent="markerToolParent">
+    <bean id="crop2" class="spring2011.cropTool.Crop" parent="markerToolParent">
 <!--        if i dont init value to those property it will get from parent bean-->
 <!--        <constructor-arg index="0" value="Paper"/>-->
 <!--        <constructor-arg index="1" value="1.0cm"/>-->
@@ -45,12 +45,12 @@
     </bean>
 
 
-    <bean id="perspectiveCrop" class="spring2011.service1.PerspectiveCrop">
+    <bean id="perspectiveCrop" class="spring2011.cropTool.PerspectiveCrop">
         <property name="point" value="4 point"/>
         <property name="des" value="from 1 to 2"/>
     </bean>
 
-    <bean id="cropTool" class="spring2011.service1.CropTool">
+    <bean id="cropTool" class="spring2011.cropTool.CropTool">
         <property name="crop1" ref="crop1"/>
         <property name="crop2" ref="crop2"/>
         <property name="perspectiveCrop" ref="perspectiveCrop"/>

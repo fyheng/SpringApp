@@ -69,6 +69,11 @@ alias and idrif
 ###########################################################
 autowire (to scan the bean) it use with teg<property>
 ###########################################################
+
+example in
+    applicationContext2011.xml
+    applicationContext2011-1.xml
+
 -byName (scan by bean name)
 -byType (scan by bean type)
 -constructor (scan by constructor in java class)
@@ -81,6 +86,11 @@ code
     subBean name pages1,pages2,..
     mainBean name editTex
     that we inject subBean into mainBean
+
+###########################################################
+autowire (to scan the bean) it use with annotations
+###########################################################
+example in package spring_Annotations.service.drawingAndTypeTool
 
 
 

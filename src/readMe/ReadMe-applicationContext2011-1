@@ -1,5 +1,9 @@
 ###########################################################
 service1 applicationContext2011-1.xml
+
+This xml file use in :
+    spring2011.cropTool
+    spring2011.DrawingAndTypeTool
 ###########################################################
 this xml file have example about inheritance bean (parent and child bean)
 

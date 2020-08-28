@@ -51,11 +51,14 @@ public class Lenovo implements Computer {
     }
 
 
-    //this constructor use with bean
-    //bean pass value to class my constructor
-    @Autowired // use to sean (scran) all parameter in parameter add to bean
+    /**
+     * bean pass value to class my constructor
+     * Qualifier("---") set specifet bean
+     * Autowired use to sean all properties in parameter add to bean
+     */
+
+    @Autowired
     public Lenovo(MainBoard mainBoard, CPU cpu, @Qualifier("NVIDIAGTX1660Ti") GPU gpu, RAM ram) {
-        //@Qualifier("NVIDIAGTX1660Ti") -- to set parameter to bean
         this.mainBoard = mainBoard;
         this.cpu = cpu;
         this.gpu = gpu;

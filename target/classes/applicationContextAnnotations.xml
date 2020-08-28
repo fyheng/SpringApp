@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+                           http://www.springframework.org/schema/beans/spring-beans.xsd
+                           http://www.springframework.org/schema/context
+                           http://www.springframework.org/schema/context/spring-context.xsd">
+
+    <context:annotation-config/>
+    <context:component-scan base-package="spring_Annotations.util"/>
+
+    <import resource="applicationContextTemplate.xml"/>
+
+    <!--we use this bean to tell and write log detail witch property of bean that we missed
+    and inside java class we need to @Required with setter method of property
+    and i have add @Required in Pen class
+    -->
+    <bean class="org.springframework.beans.factory.annotation.RequiredAnnotationBeanPostProcessor"/>
+
+    <bean id="penTool" class="spring_Annotations.service.Pen" parent="toolParentTemplate">
+        <property name="color" value="red"/>
+    </bean>
+
+
+
+    <!--we use bean autowired to scan exist bean in xml file (scan by bean type [class])
+        in class FreePenTool i have add autowired in same setter method
+    -->
+    <bean class="org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor"/>
+
+
+
+<!--
+    we use <qualifier value="qualifierName"/> to tell @Autowired which one to chose
+    so if we have two bean the same type (class) @Autowired don't know which one to chose
+    **Noted
+        @Autowired is scan by type not by bean id
+-->
+    <bean id="freePen01" class="spring_Annotations.service.FreeFormPen" parent="penToolParentTemplate">
+        <qualifier value="qualifierFreePen"/>
+        <property name="freeFromPen" value="free pen can drawing "/>
+    </bean>
+
+    <bean id="freePen02" class="spring_Annotations.service.FreeFormPen" parent="penToolParentTemplate">
+        <property name="freeFromPen" value="free pen can drawing "/>
+    </bean>
+
+
+
+<!--
+    we use @Resource for config bean
+-->
+    <bean id="deletePoint1" class="spring_Annotations.service.DeleteAnchorPoint" parent="toolParentTemplate">
+        <property name="deletePoint" value="delete Point1"/>
+    </bean>
+
+    <bean id="deletePoint2" class="spring_Annotations.service.DeleteAnchorPoint" parent="toolParentTemplate">
+        <property name="deletePoint" value="delete Point2"/>
+    </bean>
+
+
+
+    <!--################################################-->
+    <!--     Injection by using autowire property       -->
+    <!--################################################-->
+    <bean id="drawing" class="spring_Annotations.DrawingAndTypeTool">
+        <property name="pen" ref="penTool"/>
+    </bean>
+</beans>
