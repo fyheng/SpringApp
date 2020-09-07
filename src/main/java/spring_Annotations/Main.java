@@ -11,7 +11,5 @@ public class Main {
         DrawingAndTypeTool drawingAndTypeTool = context.getBean("drawing", DrawingAndTypeTool.class);
 
         System.out.println(drawingAndTypeTool.getDetail());
-
-
     }
 }

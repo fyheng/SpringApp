@@ -1,0 +1,4 @@
+One main difference between BeanFactory and ApplicationContext is that
+    * BeanFactory only instantiates bean when we call getBean() method while
+    * ApplicationContext instantiates singleton bean when the container is started,
+        It doesn't wait for getBean() method to be called.

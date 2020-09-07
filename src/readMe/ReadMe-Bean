@@ -66,3 +66,6 @@ V - Lifecycle Callbacks |  registerShutdownHook()
 In Spring2011-> service1.java
      - CropTool java class is show how to implement lifecycle callbacks BY java class
      - DrawingAndTypeTool is show how to config BY xml
+
+
+@DependsOn

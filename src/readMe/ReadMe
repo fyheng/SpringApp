@@ -49,3 +49,51 @@ this applicationContext is include
         b. @Required
         c. @Autowired
         d. @Resource
+
+
+#######################################################################################
+now i have add new package spring_Annotations01
+#######################################################################################
+https://www.javaguides.net/2018/06/guide-to-dependency-injection-in-spring.html
+
+this package is talk about config bean using java.class (@Configuration)
+
+this applicationContext is include
+
+1 using some Annotations
+        a. @Qualifier
+        b. @Required
+        c. @Autowired
+        d. @Resource
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
