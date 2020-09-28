@@ -28,7 +28,7 @@ III - init value to property of java class using xml.file
 ############################################################################################################
 IV - Bean injection (set other bean into mean Bean)
 ############################################################################################################
-@@des
+@@Description
       the mean injection is we can add property class to other class using bean xml.file
       ##property right there is not stactutor property, but it can we class.
 
@@ -68,4 +68,10 @@ In Spring2011-> service1.java
      - DrawingAndTypeTool is show how to config BY xml
 
 
-@DependsOn
+############################################################################################################
+VI - compare BeanFactory and ApplicationContext
+############################################################################################################
+One main difference between BeanFactory and ApplicationContext is that
+    * BeanFactory only instantiates bean when we call getBean() method while
+    * ApplicationContext instantiates singleton bean when the container is started,
+        It doesn't wait for getBean() method to be called.

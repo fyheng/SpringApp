@@ -10,6 +10,11 @@ import spring_Annoutations02.service.ThirdBean;
 @Configuration
 public class AppConfig {
 
+    /**
+     * in face firstBean is init at 1 and then secondBean
+     * but this we custom to set thirdBean is 1 and then secondBean
+     * This is how DependsOn use for.
+     */
     @Bean("firstBean")
     @DependsOn(value = {"thirdBean","secondBean"})
     public FirstBean firstBean(){

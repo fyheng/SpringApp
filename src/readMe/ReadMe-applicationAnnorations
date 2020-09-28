@@ -108,3 +108,11 @@ There are several lookup options to extract beans:
     Match by Name : @Inject
                     @Named("yetAnotherFieldInjectDependency")
                     private ArbitraryDependency yetAnotherFieldInjectDependency;
+
+
+###########################################################
+@DependsOn
+see more: https://www.javaguides.net/2018/10/spring-dependson-annotation-example.html
+###########################################################
+The @DependsOn annotation can force Spring IoC container to initialize one or more beans before the bean which is annotated by @DependsOn annotation.
+we can custom the bean initialize to set which one is init first.

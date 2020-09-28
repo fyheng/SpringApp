@@ -1,7 +1,5 @@
 package spring_Annotations01.controller;
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
 import spring_Annotations01.config.MessageService;
 
